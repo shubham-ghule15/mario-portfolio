@@ -2,216 +2,198 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 const stats = [
-    { label: '🪙 PROFIT', value: '$5M+' },
-    { label: '💰 REVENUE', value: '$1B+' },
-    { label: '📈 CLV BOOST', value: '+30%' },
-    { label: '🎮 PRODUCTS', value: '22' }
+    { value: '$5M+', label: 'Profit Generated' },
+    { value: '$1B+', label: 'Revenue Impact' },
+    { value: '+30%', label: 'CLV Boost' },
+    { value: '22', label: 'Products Managed' }
 ]
 
 const skills = {
-    fire: ['Python', 'SQL', 'Spark', 'ML', 'Hive', 'A/B Test'],
-    star: ['Strategy', 'Roadmap', 'Pendo', 'JIRA', 'Figma', 'UX/UI'],
-    leaf: ['React', 'AWS', 'Docker', 'CI/CD', 'Git', 'APIs']
+    analytics: ['Python', 'SQL', 'Spark', 'Machine Learning', 'A/B Testing', 'Hive'],
+    strategy: ['Product Roadmap', 'GTM Strategy', 'Pendo', 'JIRA', 'Figma', 'UX Research'],
+    engineering: ['React', 'AWS', 'Docker', 'CI/CD', 'Git', 'REST APIs']
 }
 
-const demos = [
-    { world: '2-1', title: '🎯 SEGMENTATION', desc: 'K-Means clustering boss battle!' },
-    { world: '2-2', title: '💰 CLV PREDICT', desc: 'Collect coins with ML!' },
-    { world: '2-3', title: '💬 SENTIMENT', desc: 'NLP power-up analysis!' }
+const projects = [
+    { icon: '📊', title: 'Customer Segmentation', desc: 'K-Means clustering for targeted marketing campaigns' },
+    { icon: '💰', title: 'CLV Prediction', desc: 'ML model predicting customer lifetime value' },
+    { icon: '💬', title: 'Sentiment Analysis', desc: 'NLP pipeline for customer feedback analysis' }
 ]
 
 function Home() {
     return (
         <div className="page-container">
             {/* Hero Section */}
-            <motion.div
-                className="hero-section"
-                initial={{ opacity: 0, y: 30 }}
+            <motion.section
+                className="hero"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+            >
+                <motion.span
+                    className="hero-badge"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                >
+                    Available for opportunities
+                </motion.span>
+
+                <motion.h1
+                    className="hero-title"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                >
+                    Shubham Ghule
+                </motion.h1>
+
+                <motion.p
+                    className="hero-subtitle"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                >
+                    Product Manager & Analytics Leader at American Express
+                </motion.p>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7 }}
+                    style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}
+                >
+                    <Link to="/contact" className="btn btn-primary">Get in Touch</Link>
+                    <Link to="/resume" className="btn btn-outline">View Resume</Link>
+                </motion.div>
+            </motion.section>
+
+            {/* Stats Section */}
+            <motion.section
+                initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                style={{ textAlign: 'center', padding: '2rem 0' }}
+                transition={{ delay: 0.8 }}
             >
-                <span className="mario-badge">🍄 WORLD 1-1: HOME</span>
-                <h1 className="pixel-title">SHUBHAM GHULE</h1>
-                <p style={{
-                    fontFamily: 'var(--font-pixel)',
-                    fontSize: '0.85rem',
-                    color: 'white',
-                    textShadow: '3px 3px 0px #000'
-                }}>
-                    PRODUCT MANAGER & ANALYTICS HERO
-                </p>
-            </motion.div>
+                <div className="stats-grid">
+                    {stats.map((stat, i) => (
+                        <motion.div
+                            key={i}
+                            className="stat-card"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.9 + i * 0.1 }}
+                            whileHover={{ scale: 1.05 }}
+                        >
+                            <div className="stat-value">{stat.value}</div>
+                            <div className="stat-label">{stat.label}</div>
+                        </motion.div>
+                    ))}
+                </div>
+            </motion.section>
 
-            {/* Stats HUD */}
-            <motion.div
-                className="game-hud"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+            {/* About Section */}
+            <motion.section
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                style={{ marginTop: '4rem' }}
             >
-                {stats.map((stat, i) => (
-                    <div key={i} className="hud-item">
-                        <span>{stat.label}</span>
-                        <span className="hud-value">{stat.value}</span>
-                    </div>
-                ))}
-            </motion.div>
+                <div className="section-header">
+                    <h2 className="section-title">About Me</h2>
+                    <p className="section-subtitle">Driving growth through data-driven product decisions</p>
+                </div>
 
-            {/* Bio Section */}
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem', marginTop: '2rem' }}>
-                <motion.div
-                    className="question-block"
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                >
-                    <h3 style={{
-                        fontFamily: 'var(--font-pixel)',
-                        fontSize: '1rem',
-                        color: '#000',
-                        marginBottom: '1rem'
-                    }}>
-                        ❓ WHO AM I?
-                    </h3>
-                    <p style={{ color: '#333', fontSize: '1rem', lineHeight: 1.9 }}>
-                        I'm an <strong>Analytics & Strategy professional</strong> at <strong>American Express</strong>
-                        with power-ups in <strong>Machine Learning</strong>, <strong>Product Strategy</strong>, and
-                        <strong>Data Engineering</strong>.
+                <div className="glass-card">
+                    <p className="card-text">
+                        I'm an Analytics & Strategy professional at <strong>American Express</strong> with expertise
+                        in <strong>Machine Learning</strong>, <strong>Product Strategy</strong>, and <strong>Data Engineering</strong>.
                     </p>
-                    <p style={{ color: '#333', fontSize: '1rem', lineHeight: 1.9, marginTop: '1rem' }}>
-                        Just like Mario collects coins, I collect <strong>$5M+ in profit</strong> and
-                        <strong>$1B+ in billed business</strong> through analytics magic! 🍄
+                    <p className="card-text" style={{ marginTop: '1rem' }}>
+                        I've driven <strong>$5M+ in profit optimization</strong> and contributed to <strong>$1B+ in billed business</strong>
+                        through advanced analytics and strategic product initiatives. My work spans 22+ card products
+                        with a focus on customer lifetime value and targeted marketing optimization.
                     </p>
-                </motion.div>
-
-                <motion.div
-                    style={{ textAlign: 'center', padding: '2rem' }}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                    <div style={{
-                        fontSize: '9rem',
-                        animation: 'titleFloat 3s ease-in-out infinite',
-                        filter: 'drop-shadow(5px 5px 0 #000)'
-                    }}>🦸</div>
-                    <p style={{
-                        fontFamily: 'var(--font-pixel)',
-                        fontSize: '0.75rem',
-                        color: 'white',
-                        textShadow: '3px 3px #000'
-                    }}>
-                        LVL 99 PM
-                    </p>
-                </motion.div>
-            </div>
+                </div>
+            </motion.section>
 
             {/* Skills Section */}
-            <motion.div
+            <motion.section
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                style={{ marginTop: '4rem' }}
             >
-                <div className="pipe-header" style={{ marginTop: '2rem' }}>
-                    🍄 POWER-UPS & ABILITIES
+                <div className="section-header">
+                    <h2 className="section-title">Skills</h2>
+                    <p className="section-subtitle">Technical expertise and strategic capabilities</p>
                 </div>
-                <div className="skills-grid">
-                    <div className="brick-block">
-                        <h4 style={{
-                            color: 'white',
-                            fontFamily: 'var(--font-pixel)',
-                            fontSize: '0.7rem',
-                            marginBottom: '1rem',
-                            textShadow: '2px 2px 0 #000'
-                        }}>
-                            🔥 FIRE FLOWER
-                        </h4>
-                        {skills.fire.map(skill => (
-                            <span key={skill} className="powerup fire">{skill}</span>
-                        ))}
-                    </div>
-                    <div className="brick-block">
-                        <h4 style={{
-                            color: 'white',
-                            fontFamily: 'var(--font-pixel)',
-                            fontSize: '0.7rem',
-                            marginBottom: '1rem',
-                            textShadow: '2px 2px 0 #000'
-                        }}>
-                            ⭐ STAR POWER
-                        </h4>
-                        {skills.star.map(skill => (
-                            <span key={skill} className="powerup star">{skill}</span>
-                        ))}
-                    </div>
-                    <div className="brick-block">
-                        <h4 style={{
-                            color: 'white',
-                            fontFamily: 'var(--font-pixel)',
-                            fontSize: '0.7rem',
-                            marginBottom: '1rem',
-                            textShadow: '2px 2px 0 #000'
-                        }}>
-                            🍃 LEAF POWER
-                        </h4>
-                        {skills.leaf.map(skill => (
-                            <span key={skill} className="powerup leaf">{skill}</span>
-                        ))}
-                    </div>
-                </div>
-            </motion.div>
 
-            {/* ML Demos Section */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-            >
-                <div className="pipe-header" style={{ marginTop: '2rem' }}>
-                    🏰 CASTLES TO EXPLORE (ML DEMOS)
+                <div className="skills-grid">
+                    <div className="skill-category">
+                        <div className="skill-category-title">Analytics & ML</div>
+                        <div className="skill-tags">
+                            {skills.analytics.map(skill => (
+                                <span key={skill} className="skill-tag">{skill}</span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="skill-category">
+                        <div className="skill-category-title" style={{ color: 'var(--glow-purple)' }}>Product Strategy</div>
+                        <div className="skill-tags">
+                            {skills.strategy.map(skill => (
+                                <span key={skill} className="skill-tag purple">{skill}</span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="skill-category">
+                        <div className="skill-category-title">Engineering</div>
+                        <div className="skill-tags">
+                            {skills.engineering.map(skill => (
+                                <span key={skill} className="skill-tag green">{skill}</span>
+                            ))}
+                        </div>
+                    </div>
                 </div>
-                <div className="demos-grid">
-                    {demos.map((demo, i) => (
+            </motion.section>
+
+            {/* Projects Preview */}
+            <motion.section
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                style={{ marginTop: '4rem' }}
+            >
+                <div className="section-header">
+                    <h2 className="section-title">Featured Projects</h2>
+                    <p className="section-subtitle">Machine learning & analytics showcases</p>
+                </div>
+
+                <div className="projects-grid">
+                    {projects.map((project, i) => (
                         <Link to="/projects" key={i} style={{ textDecoration: 'none' }}>
-                            <div className="castle-card">
-                                <span style={{
-                                    fontFamily: 'var(--font-pixel)',
-                                    fontSize: '0.75rem',
-                                    color: 'var(--coin-gold)',
-                                    textShadow: '1px 1px 0 #000'
-                                }}>
-                                    WORLD {demo.world}
-                                </span>
-                                <h4 style={{
-                                    color: 'white',
-                                    fontFamily: 'var(--font-pixel)',
-                                    fontSize: '0.8rem',
-                                    margin: '1rem 0'
-                                }}>
-                                    {demo.title}
-                                </h4>
-                                <p style={{ color: '#bbb', fontSize: '0.9rem' }}>{demo.desc}</p>
-                            </div>
+                            <motion.div
+                                className="project-card"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                whileHover={{ scale: 1.02 }}
+                            >
+                                <div className="project-icon">{project.icon}</div>
+                                <h3 className="project-title">{project.title}</h3>
+                                <p className="project-desc">{project.desc}</p>
+                            </motion.div>
                         </Link>
                     ))}
                 </div>
-            </motion.div>
+            </motion.section>
 
             {/* Footer */}
-            <div className="ground-footer">
-                <p style={{
-                    fontFamily: 'var(--font-pixel)',
-                    fontSize: '0.8rem',
-                    color: 'var(--coin-gold)',
-                    textShadow: '2px 2px 0 #000'
-                }}>
-                    🍄 THANK YOU MARIO! 🍄
-                </p>
-                <p style={{ color: '#ccc', fontSize: '0.85rem', marginTop: '0.75rem' }}>
-                    © 2026 Shubham Ghule | Built with React 🚀
-                </p>
-            </div>
+            <footer className="footer">
+                <p className="footer-text">© 2026 Shubham Ghule. Built with React & Three.js</p>
+            </footer>
         </div>
     )
 }

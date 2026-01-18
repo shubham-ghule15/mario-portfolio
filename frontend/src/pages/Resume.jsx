@@ -1,168 +1,117 @@
 import { motion } from 'framer-motion'
 
 function Resume() {
-    const resumeUrl = '/resume.pdf'
-
     return (
         <div className="page-container">
             <motion.div
+                className="section-header"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                style={{ textAlign: 'center', marginBottom: '2rem' }}
+                style={{ marginTop: '2rem' }}
             >
-                <span className="mario-badge" style={{ background: 'linear-gradient(180deg, var(--coin-gold) 0%, #CC9900 100%)', color: '#000' }}>
-                    ⭐ WORLD 4: RESUME
-                </span>
-                <h1 style={{
-                    fontFamily: 'var(--font-pixel)',
-                    fontSize: '1.3rem',
-                    color: 'var(--coin-gold)',
-                    textShadow: '4px 4px 0px #000',
-                    marginTop: '1rem'
-                }}>
-                    ⭐ COLLECT YOUR STAR ⭐
-                </h1>
+                <h1 className="section-title">Resume</h1>
+                <p className="section-subtitle">Download my complete resume</p>
             </motion.div>
 
-            {/* Star Card */}
+            {/* Resume Card */}
             <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
+                transition={{ delay: 0.3 }}
                 style={{
-                    background: 'linear-gradient(135deg, var(--coin-gold) 0%, #FFE44D 30%, #CC9900 100%)',
-                    border: '8px solid #000',
-                    borderRadius: '16px',
-                    padding: '2.5rem',
-                    textAlign: 'center',
-                    boxShadow: '10px 10px 0px rgba(0,0,0,0.5), 0 0 50px rgba(255,215,0,0.4)',
                     maxWidth: '500px',
-                    margin: '0 auto 2rem'
+                    margin: '0 auto'
                 }}
             >
-                <motion.span
-                    style={{ fontSize: '6rem', display: 'inline-block', filter: 'drop-shadow(0 0 20px rgba(255,215,0,0.8))' }}
-                    animate={{ rotate: [0, 15, 0, -15, 0], scale: [1, 1.15, 1, 1.15, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                >
-                    ⭐
-                </motion.span>
+                <div className="glass-card" style={{ textAlign: 'center', padding: '3rem' }}>
+                    <motion.div
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        style={{ fontSize: '4rem', marginBottom: '1.5rem' }}
+                    >
+                        📄
+                    </motion.div>
 
-                <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '1rem', color: '#000', margin: '1.5rem 0 0.5rem' }}>
-                    SHUBHAM GHULE
-                </p>
-                <p style={{ color: '#333', fontWeight: 700, fontSize: '1rem' }}>
-                    Analytics & Strategy Hero
-                </p>
-                <p style={{ color: '#555', fontSize: '0.9rem', margin: '1rem 0' }}>
-                    IIM Bangalore | 3+ Years XP | 22+ Products
-                </p>
+                    <h2 style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>Shubham Ghule</h2>
+                    <p style={{ color: 'var(--glow-cyan)', marginBottom: '1.5rem' }}>Product Manager & Analytics Leader</p>
 
-                <div style={{ marginTop: '1.5rem', display: 'flex', gap: '0.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                    <span style={{
-                        background: '#000',
-                        color: 'var(--coin-gold)',
-                        padding: '0.3rem 0.7rem',
-                        fontFamily: 'var(--font-pixel)',
-                        fontSize: '0.5rem',
-                        borderRadius: '4px'
-                    }}>
-                        $5M+ PROFIT
-                    </span>
-                    <span style={{
-                        background: '#000',
-                        color: 'var(--coin-gold)',
-                        padding: '0.3rem 0.7rem',
-                        fontFamily: 'var(--font-pixel)',
-                        fontSize: '0.5rem',
-                        borderRadius: '4px'
-                    }}>
-                        $1B+ REVENUE
-                    </span>
+                    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '2rem' }}>
+                        <span className="skill-tag">IIM Bangalore</span>
+                        <span className="skill-tag purple">3+ Years XP</span>
+                        <span className="skill-tag green">22+ Products</span>
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                        <div style={{
+                            background: 'rgba(0, 212, 255, 0.1)',
+                            border: '1px solid rgba(0, 212, 255, 0.2)',
+                            borderRadius: '8px',
+                            padding: '0.75rem 1.25rem'
+                        }}>
+                            <p style={{ color: 'var(--glow-cyan)', fontWeight: 600, fontSize: '1.25rem' }}>$5M+</p>
+                            <p style={{ color: 'var(--text-secondary)', fontSize: '0.75rem' }}>Profit</p>
+                        </div>
+                        <div style={{
+                            background: 'rgba(157, 78, 221, 0.1)',
+                            border: '1px solid rgba(157, 78, 221, 0.2)',
+                            borderRadius: '8px',
+                            padding: '0.75rem 1.25rem'
+                        }}>
+                            <p style={{ color: 'var(--glow-purple)', fontWeight: 600, fontSize: '1.25rem' }}>$1B+</p>
+                            <p style={{ color: 'var(--text-secondary)', fontSize: '0.75rem' }}>Revenue</p>
+                        </div>
+                    </div>
+
+                    <a
+                        href="/resume.pdf"
+                        download="Shubham_Ghule_Resume.pdf"
+                        className="btn btn-primary"
+                        style={{ width: '100%', justifyContent: 'center' }}
+                    >
+                        ↓ Download Resume
+                    </a>
                 </div>
             </motion.div>
 
-            {/* Download Button */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                style={{ textAlign: 'center', marginBottom: '2rem' }}
-            >
-                <a
-                    href={resumeUrl}
-                    download="Shubham_Ghule_Resume.pdf"
-                    style={{
-                        display: 'inline-block',
-                        fontFamily: 'var(--font-pixel)',
-                        fontSize: '0.75rem',
-                        background: 'linear-gradient(180deg, var(--mario-red) 0%, #B01010 100%)',
-                        border: '5px solid #000',
-                        borderRadius: '6px',
-                        color: 'white',
-                        padding: '1.2rem 2.5rem',
-                        textDecoration: 'none',
-                        boxShadow: '5px 5px 0px #000',
-                        transition: 'transform 0.15s ease, box-shadow 0.15s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                        e.target.style.transform = 'translateY(-5px)'
-                        e.target.style.boxShadow = '5px 12px 0px #000'
-                    }}
-                    onMouseLeave={(e) => {
-                        e.target.style.transform = 'translateY(0)'
-                        e.target.style.boxShadow = '5px 5px 0px #000'
-                    }}
-                >
-                    ⬇️ DOWNLOAD STAR POWER
-                </a>
-            </motion.div>
-
-            {/* PDF Preview Placeholder */}
+            {/* Quick Highlights */}
             <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                style={{ marginTop: '3rem' }}
             >
-                <p style={{
-                    fontFamily: 'var(--font-pixel)',
-                    fontSize: '0.9rem',
-                    color: 'var(--coin-gold)',
-                    textShadow: '3px 3px 0 #000',
-                    textAlign: 'center',
-                    margin: '2rem 0 1rem'
-                }}>
-                    📜 SCROLL OF POWER 📜
-                </p>
+                <div className="section-header">
+                    <h2 className="section-title" style={{ fontSize: '1.5rem' }}>Quick Highlights</h2>
+                </div>
 
-                <div style={{
-                    border: '8px solid #000',
-                    borderRadius: '12px',
-                    boxShadow: '8px 8px 0px rgba(0,0,0,0.5)',
-                    overflow: 'hidden',
-                    background: '#1a1a1a',
-                    minHeight: '600px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}>
-                    <div style={{ textAlign: 'center', padding: '3rem' }}>
-                        <p style={{ fontSize: '4rem' }}>📄</p>
-                        <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '0.7rem', color: 'white', marginTop: '1rem' }}>
-                            Resume Preview
-                        </p>
-                        <p style={{ color: '#888', fontSize: '0.9rem', marginTop: '0.5rem' }}>
-                            Click download button above to get the full PDF
-                        </p>
-                    </div>
+                <div className="glass-card">
+                    <ul style={{ listStyle: 'none', padding: 0 }}>
+                        {[
+                            'Analytics & Growth Strategy at American Express',
+                            'MBA from IIM Bangalore (Business Analytics)',
+                            'Built CLV models with 30% accuracy improvement',
+                            'Managed 22+ card products across $200M campaigns',
+                            'Previously at Samsung R&D and Dassault Systèmes'
+                        ].map((item, i) => (
+                            <li key={i} style={{
+                                padding: '0.75rem 0',
+                                borderBottom: i < 4 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                                color: 'var(--text-secondary)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.75rem'
+                            }}>
+                                <span style={{ color: 'var(--glow-cyan)' }}>→</span>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </motion.div>
 
-            <div className="ground-footer">
-                <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '0.8rem', color: 'var(--coin-gold)', textShadow: '2px 2px 0 #000' }}>
-                    ⭐ STAR COLLECTED! ⭐
-                </p>
-            </div>
+            <footer className="footer">
+                <p className="footer-text">Let's connect and build something great</p>
+            </footer>
         </div>
     )
 }

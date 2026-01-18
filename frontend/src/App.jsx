@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
 import Navigation from './components/Navigation'
+import Scene3D from './components/Scene3D'
+import './styles/mario.css'
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import('./pages/Home'))
@@ -12,14 +14,14 @@ const Contact = lazy(() => import('./pages/Contact'))
 // Loading component
 const Loading = () => (
     <div className="loading-screen">
-        <div className="loading-mushroom">🍄</div>
-        <p>Loading...</p>
+        <div className="loading-spinner"></div>
     </div>
 )
 
 function App() {
     return (
         <div className="app">
+            <Scene3D />
             <Navigation />
             <main className="main-content">
                 <Suspense fallback={<Loading />}>
@@ -32,12 +34,6 @@ function App() {
                     </Routes>
                 </Suspense>
             </main>
-            <div className="floating-decorations">
-                <span className="q-block">❓</span>
-                <span className="q-block">❓</span>
-                <span className="floating-coin">🪙</span>
-                <span className="floating-coin">🪙</span>
-            </div>
         </div>
     )
 }

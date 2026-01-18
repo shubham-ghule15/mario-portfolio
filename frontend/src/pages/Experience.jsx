@@ -2,60 +2,52 @@ import { motion } from 'framer-motion'
 
 const experiences = [
     {
-        world: '3-1',
-        stars: '⭐⭐⭐',
-        company: '🏦 AMERICAN EXPRESS',
-        role: 'Assistant Manager, Analytics & Growth Strategy',
-        period: 'May 2025 - Present',
+        date: 'May 2025 - Present',
+        title: 'Assistant Manager, Analytics & Growth Strategy',
+        company: 'American Express',
         achievements: [
-            { text: 'Spearheaded analytics for GCS Marketing, contributing', highlight: '$5M+ profit', after: 'and', highlight2: '$1B+ billed business' },
-            { text: 'Developed CLV models with', highlight: '30% increased accuracy', after: 'for $200M marketing campaigns' },
-            { text: 'Built 2 Decision Tree models improving targeting by', highlight: '~25%' },
-            { text: 'Applied ML techniques for', highlight: '22 card products', after: 'optimization' }
+            'Spearheaded analytics for GCS Marketing, contributing $5M+ profit and $1B+ billed business',
+            'Developed CLV models with 30% increased accuracy for $200M marketing campaigns',
+            'Built 2 Decision Tree models improving targeting by ~25%',
+            'Applied ML techniques for 22 card products optimization'
         ]
     },
     {
-        world: '3-2',
-        stars: '⭐⭐',
-        company: '📱 SAMSUNG R&D BANGALORE',
-        role: "CTO's Office Intern, AI Strategy",
-        period: 'Apr 2024 - May 2024',
+        date: 'Apr 2024 - May 2024',
+        title: "CTO's Office Intern, AI Strategy",
+        company: 'Samsung R&D Bangalore',
         achievements: [
-            { text: 'Developed strategies for', highlight: '11 next-gen Sound AI features' },
-            { text: 'Analyzed', highlight: '50+ initiatives', after: 'targeting', highlight2: '1 Billion+ users' },
-            { text: 'Scouted', highlight: '30+ open-source', after: 'audio LLM projects and', highlight2: '15+ startups' }
+            'Developed strategies for 11 next-gen Sound AI features',
+            'Analyzed 50+ initiatives targeting 1 Billion+ users',
+            'Scouted 30+ open-source audio LLM projects and 15+ startups'
         ]
     },
     {
-        world: '3-3',
-        stars: '⭐⭐⭐',
-        company: '💻 DASSAULT SYSTÈMES',
-        role: 'Senior Software Engineer',
-        period: 'Dec 2020 - Jun 2023',
+        date: 'Dec 2020 - Jun 2023',
+        title: 'Senior Software Engineer',
+        company: 'Dassault Systèmes',
         achievements: [
-            { text: 'Built app for', highlight: '30K+ clinical trials', after: ', impacting', highlight2: '90M+ patients' },
-            { text: 'Contributing', highlight: '$1.1B+ revenue', after: ', reviewed', highlight2: '100+ PRs' },
-            { text: 'Redesigned 10+ UX screens achieving', highlight: '~90% CSAT', after: 'for', highlight2: '1M+ users' },
-            { text: 'Leveraged Pendo for insights with', highlight: '$15M+ revenue impact' },
-            { text: 'Revamped AWS architecture saving', highlight: '$100K+', after: ', reduced latency by', highlight2: '50%' }
+            'Built app for 30K+ clinical trials, impacting 90M+ patients',
+            'Contributing $1.1B+ revenue, reviewed 100+ PRs, safeguarded 50K+ LOC',
+            'Redesigned 10+ UX screens achieving ~90% CSAT for 1M+ users',
+            'Leveraged Pendo for insights with $15M+ revenue impact',
+            'Revamped AWS architecture saving $100K+, reduced latency by 50%'
         ]
     }
 ]
 
 const education = [
     {
-        icon: '🎓',
-        school: 'IIM BANGALORE',
+        school: 'IIM Bangalore',
         degree: 'MBA (Business Analytics)',
-        period: '2023 - 2025 | CGPA: 3.03/4.00',
-        skills: 'ML, NLP, GenAI, Deep Learning 🍄'
+        period: '2023 - 2025',
+        details: 'CGPA: 3.03/4.00 • ML, NLP, GenAI, Deep Learning'
     },
     {
-        icon: '🎓',
-        school: 'PUNE UNIVERSITY',
+        school: 'Pune University',
         degree: 'B.E. (Computer Science)',
-        period: '2016 - 2020 | CGPA: 9.24/10',
-        skills: 'Top 5% of class ⭐'
+        period: '2016 - 2020',
+        details: 'CGPA: 9.24/10 • Top 5% of class'
     }
 ]
 
@@ -63,140 +55,75 @@ function Experience() {
     return (
         <div className="page-container">
             <motion.div
+                className="section-header"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                style={{ textAlign: 'center', marginBottom: '2rem' }}
+                style={{ marginTop: '2rem' }}
             >
-                <span className="mario-badge">🗺️ WORLD 3: EXPERIENCE</span>
-                <h1 style={{
-                    fontFamily: 'var(--font-pixel)',
-                    fontSize: '1rem',
-                    color: 'var(--coin-gold)',
-                    textShadow: '3px 3px 0px #000',
-                    marginTop: '1rem'
-                }}>
-                    🏰 WORLD MAP: MY JOURNEY 🏰
-                </h1>
+                <h1 className="section-title">Experience</h1>
+                <p className="section-subtitle">Professional journey and achievements</p>
             </motion.div>
 
-            {/* Experience Cards */}
-            {experiences.map((exp, i) => (
-                <motion.div
-                    key={i}
-                    className="world-card"
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: i * 0.15 }}
-                    style={{
-                        background: 'linear-gradient(180deg, #1a1a3a 0%, #000020 100%)',
-                        border: '4px solid var(--mario-blue)',
-                        padding: '1.5rem',
-                        margin: '1rem 0',
-                        boxShadow: '4px 4px 0px #000',
-                        position: 'relative'
-                    }}
-                >
-                    <div style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: '4px',
-                        background: 'linear-gradient(90deg, var(--mario-red), var(--coin-gold), var(--mario-green), var(--mario-blue))'
-                    }} />
-
-                    <span style={{ fontFamily: 'var(--font-pixel)', fontSize: '0.8rem', color: 'var(--coin-gold)' }}>
-                        WORLD {exp.world} {exp.stars}
-                    </span>
-
-                    <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '0.9rem', color: 'var(--mario-red)', margin: '0.5rem 0' }}>
-                        {exp.company}
-                    </p>
-
-                    <p style={{ color: 'white', fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.5rem' }}>
-                        {exp.role}
-                    </p>
-
-                    <span style={{
-                        display: 'inline-block',
-                        background: 'var(--mario-green)',
-                        border: '2px solid #000',
-                        padding: '0.25rem 0.75rem',
-                        fontSize: '0.75rem',
-                        color: 'white',
-                        fontWeight: 600,
-                        marginBottom: '1rem'
-                    }}>
-                        🕐 {exp.period}
-                    </span>
-
-                    <div>
-                        {exp.achievements.map((ach, j) => (
-                            <div key={j} style={{
-                                padding: '0.5rem 0 0.5rem 2rem',
-                                color: '#ccc',
-                                fontSize: '0.9rem',
-                                borderLeft: '2px solid var(--coin-gold)',
-                                marginLeft: '0.5rem',
-                                position: 'relative'
-                            }}>
-                                <span style={{ position: 'absolute', left: '-0.75rem', top: '0.5rem' }}>🪙</span>
-                                {ach.text} <span style={{ color: 'var(--coin-gold)', fontWeight: 700 }}>{ach.highlight}</span>
-                                {ach.after && ` ${ach.after}`}
-                                {ach.highlight2 && <span style={{ color: 'var(--coin-gold)', fontWeight: 700 }}> {ach.highlight2}</span>}
-                            </div>
-                        ))}
-                    </div>
-                </motion.div>
-            ))}
-
-            {/* Education Section */}
+            {/* Timeline */}
             <motion.div
+                className="timeline"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                style={{ textAlign: 'center', margin: '3rem 0 2rem' }}
+                transition={{ delay: 0.3 }}
             >
-                <span style={{
-                    fontFamily: 'var(--font-pixel)',
-                    fontSize: '1rem',
-                    color: 'var(--coin-gold)',
-                    textShadow: '3px 3px 0px #000'
-                }}>
-                    🌟 BONUS WORLD: EDUCATION 🌟
-                </span>
-            </motion.div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
-                {education.map((edu, i) => (
+                {experiences.map((exp, i) => (
                     <motion.div
                         key={i}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6 + i * 0.1 }}
-                        style={{
-                            background: 'linear-gradient(180deg, var(--mario-blue) 0%, #0066AA 100%)',
-                            border: '4px solid #000',
-                            padding: '1.5rem',
-                            boxShadow: '4px 4px 0px #000'
-                        }}
+                        className="timeline-item"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4 + i * 0.15 }}
                     >
-                        <p style={{ fontSize: '2rem', margin: 0 }}>{edu.icon}</p>
-                        <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '0.7rem', color: 'white', textShadow: '2px 2px 0px #000' }}>
-                            {edu.school}
-                        </p>
-                        <p style={{ color: 'white', fontWeight: 600, margin: '0.5rem 0' }}>{edu.degree}</p>
-                        <p style={{ color: '#ddd', fontSize: '0.85rem' }}>{edu.period}</p>
-                        <p style={{ color: 'var(--coin-gold)', fontSize: '0.75rem', marginTop: '0.5rem' }}>{edu.skills}</p>
+                        <div className="timeline-date">{exp.date}</div>
+                        <h3 className="timeline-title">{exp.title}</h3>
+                        <p className="timeline-company">{exp.company}</p>
+                        <ul className="timeline-achievements">
+                            {exp.achievements.map((ach, j) => (
+                                <li key={j}>{ach}</li>
+                            ))}
+                        </ul>
                     </motion.div>
                 ))}
-            </div>
+            </motion.div>
 
-            <div className="ground-footer">
-                <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '0.8rem', color: 'var(--coin-gold)', textShadow: '2px 2px 0 #000' }}>
-                    🏰 WORLD COMPLETE! 🏰
-                </p>
-            </div>
+            {/* Education */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                style={{ marginTop: '4rem' }}
+            >
+                <div className="section-header">
+                    <h2 className="section-title">Education</h2>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+                    {education.map((edu, i) => (
+                        <motion.div
+                            key={i}
+                            className="glass-card"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                        >
+                            <h3 className="card-title">{edu.school}</h3>
+                            <p style={{ color: 'var(--glow-cyan)', marginBottom: '0.5rem' }}>{edu.degree}</p>
+                            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>{edu.period}</p>
+                            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.5rem' }}>{edu.details}</p>
+                        </motion.div>
+                    ))}
+                </div>
+            </motion.div>
+
+            <footer className="footer">
+                <p className="footer-text">Building impactful products since 2016</p>
+            </footer>
         </div>
     )
 }

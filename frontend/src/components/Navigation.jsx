@@ -2,52 +2,43 @@ import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 const navItems = [
-    { path: '/', label: 'HOME', icon: '🏠' },
-    { path: '/projects', label: 'PROJECTS', icon: '🎮' },
-    { path: '/experience', label: 'WORK', icon: '💼' },
-    { path: '/resume', label: 'RESUME', icon: '📄' },
-    { path: '/contact', label: 'CONTACT', icon: '📬' }
+    { path: '/', label: 'Home' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/experience', label: 'Experience' },
+    { path: '/resume', label: 'Resume' },
+    { path: '/contact', label: 'Contact' }
 ]
 
 function Navigation() {
     return (
-        <header className="mario-header">
-            <div className="header-content">
-                <motion.div
-                    className="logo-section"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <span className="logo-icon">🍄</span>
-                    <span className="logo-text">SHUBHAM G.</span>
-                </motion.div>
+        <motion.header
+            className="nav-header"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+        >
+            <NavLink to="/" className="nav-logo">
+                SG
+            </NavLink>
 
-                <nav className="nav-section">
-                    {navItems.map((item, index) => (
-                        <motion.div
-                            key={item.path}
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.3, delay: index * 0.1 }}
+            <nav className="nav-links">
+                {navItems.map((item, index) => (
+                    <motion.div
+                        key={item.path}
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                    >
+                        <NavLink
+                            to={item.path}
+                            className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
                         >
-                            <NavLink
-                                to={item.path}
-                                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-                            >
-                                <span className="nav-icon">{item.icon}</span>
-                                <span className="nav-label">{item.label}</span>
-                            </NavLink>
-                        </motion.div>
-                    ))}
-                </nav>
-
-                <div className="coin-section">
-                    <span className="coin-anim">🪙</span>
-                    <span className="coin-count">×99</span>
-                </div>
-            </div>
-        </header>
+                            {item.label}
+                        </NavLink>
+                    </motion.div>
+                ))}
+            </nav>
+        </motion.header>
     )
 }
 
